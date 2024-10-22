@@ -5,9 +5,16 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pokemon_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/pokedex_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    <!--TextView
         android:id="@+id/pokemon_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,7 +28,8 @@
         android:id="@+id/read_pokemon_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/ver_pokemon"
         app:layout_constraintTop_toBottomOf="@id/pokemon_result"
-        app:layout_constraintStart_toStartOf="@id/read_pokemon_button"/>
+        app:layout_constraintStart_toStartOf="@id/read_pokemon_button"/-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

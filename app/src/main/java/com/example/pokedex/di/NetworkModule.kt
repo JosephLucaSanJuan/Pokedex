@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 //import retrofit2.converter.scalars.ScalarsConverterFactory
 import javax.inject.Singleton
 
-private const val POKEAPI_URL = "http://pokeapi.co/"
+private const val POKEAPI_URL = "https://pokeapi.co/"
 
 @Module
 @InstallIn(SingletonComponent::class)
