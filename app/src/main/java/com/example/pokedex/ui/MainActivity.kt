@@ -33,10 +33,5 @@ class MainActivity : AppCompatActivity() {
                 binding.pokemonResult.text = pokemons.toString()
             }
         }*/
-        val recyclerView = binding.pokemonList
-        recyclerView.adapter = PokedexAdapter()
-        lifecycleScope.launch {
-            (recyclerView.adapter as PokedexAdapter).submitList(viewModel.read())
-        }
     }
 }

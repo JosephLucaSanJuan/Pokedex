@@ -44,6 +44,8 @@ dependencies {
 
     implementation(libs.hilt.android)
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     kapt(libs.hilt.android.compiler)
     implementation(libs.retrofit)
     implementation(libs.androidx.core.ktx)
@@ -54,6 +56,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    // Fragments
+    implementation("androidx.fragment:fragment-ktx:1.8.3")
 }
 kapt {
     correctErrorTypes = true
