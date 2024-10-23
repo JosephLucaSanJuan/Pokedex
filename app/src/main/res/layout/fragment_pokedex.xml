@@ -13,4 +13,11 @@
         tools:listitem="@layout/pokedex_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/loading_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"/>
+
 </FrameLayout>

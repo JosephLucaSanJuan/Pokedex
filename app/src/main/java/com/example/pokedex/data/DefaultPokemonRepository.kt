@@ -1,6 +1,7 @@
 package com.example.pokedex.data
 
 import com.example.pokedex.data.remote.PokemonRemoteDataSource
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class DefaultPokemonRepository
@@ -12,7 +13,11 @@ class DefaultPokemonRepository
         return pokemons
     }
 
-    override suspend fun readOne(id: Int): String {
-        TODO("Not yet implemented")
+    override suspend fun readOne(id: Int): Pokemon {
+        return remoteDataSource.readOne(id)
+    }
+
+    override fun observeAll(): Flow<List<Pokemon>> {
+        return remoteDataSource.observeAll()
     }
 }

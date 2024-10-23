@@ -2,6 +2,7 @@ package com.example.pokedex.data.remote
 
 import com.example.pokedex.data.Pokemon
 import com.example.pokedex.data.toExternal
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -20,7 +21,11 @@ class PokemonNetworkDataSource
         }
     }
 
-    override suspend fun readOne(): String {
+    override suspend fun readOne(id:Int): Pokemon {
+        TODO("Not yet implemented")
+    }
+
+    override fun observeAll(): Flow<List<Pokemon>> {
         TODO("Not yet implemented")
     }
 }
