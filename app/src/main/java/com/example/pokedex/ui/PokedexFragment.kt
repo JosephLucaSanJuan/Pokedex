@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.pokedex.R
 import com.example.pokedex.databinding.FragmentPokedexBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -31,8 +34,18 @@ class PokedexFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView = binding.pokemonList
         recyclerView.adapter = PokedexAdapter()
-        lifecycleScope.launch {
-            (recyclerView.adapter as PokedexAdapter).submitList(viewModel.read())
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.collect {
+                    uiState -> when(uiState) {
+                        is PokedexUiState.Error -> TODO()
+                        PokedexUiState.Loading -> TODO()
+                        is PokedexUiState.Success -> {
+                            (recyclerView.adapter as PokedexAdapter).submitList(viewModel.read())
+                        }
+                    }
+                }
+            }
         }
     }
 }
