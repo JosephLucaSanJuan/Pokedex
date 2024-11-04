@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("androidx.room")
 }
 
 android {
@@ -38,6 +39,9 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    room {
+        schemaDirectory("$projectDir/schemas")
+    }
 }
 
 dependencies {
@@ -58,6 +62,14 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     // Fragments
     implementation("androidx.fragment:fragment-ktx:1.8.3")
+    // Room
+    implementation("androidx.room:room-runtime:2.6.1")
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:2.6.1")
+    // To use Kotlin Symbol Processing (KSP)
+    //ksp("androidx.room:room-compiler:2.6.1")
 }
 kapt {
     correctErrorTypes = true
