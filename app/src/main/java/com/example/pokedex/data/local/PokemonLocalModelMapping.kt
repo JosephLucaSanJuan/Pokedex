@@ -7,8 +7,8 @@ fun Pokemon.toLocal():PokemonEntity{
     return PokemonEntity(
         id = this.id,
         name = this.name,
-        /*height = this.height,
-        weight = this.weight*/
+        height = this.height,
+        weight = this.weight/**/
     )
 }
 
@@ -19,8 +19,8 @@ fun List<Pokemon>.toLocal():List<PokemonEntity>{
 fun PokemonEntity.toExternal() = Pokemon(
         id = this.id,
         name = this.name,
-        /*height = this.height,
-        weight = this.weight*/
+        height = this.height,
+        weight = this.weight/**/
     )
 
 fun List<PokemonEntity>.toExternal() = map(PokemonEntity::toExternal)

@@ -2,6 +2,8 @@ package com.example.pokedex.di
 
 import android.content.Context
 import androidx.room.Room
+import com.example.pokedex.data.local.PokemonDao
+import com.example.pokedex.data.local.PokemonDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +16,7 @@ import javax.inject.Singleton
 class LocalModule {
     @Provides
     @Singleton
-    fun provideDatabase(@ApplicationContext context: Context)/*:PokemonDatabase*/ {
+    fun provideDatabase(@ApplicationContext context: Context):PokemonDatabase/**/ {
         val database = Room.databaseBuilder(
             context,
             PokemonDatabase::class.java,
@@ -23,6 +25,6 @@ class LocalModule {
         return database.build()
     }
 
-    /*@Provides
-    fun provideDao(pokemonDatabase:PokemonDatabase):PokemonDao = pokemonDatabase.pokemonDao()*/
+    @Provides
+    fun provideDao(pokemonDatabase:PokemonDatabase): PokemonDao = pokemonDatabase.pokemonDao()/**/
 }

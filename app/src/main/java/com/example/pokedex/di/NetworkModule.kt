@@ -32,7 +32,7 @@ class NetworkModule {
     }
 }
 
-@Module
+/*@Module
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {
     @Singleton
@@ -42,4 +42,4 @@ abstract class RepositoryModule {
     @Singleton
     @Binds
     abstract fun bindPokemonRemote(repository: PokemonNetworkDataSource):PokemonRemoteDataSource
-}
+}*/
