@@ -7,6 +7,8 @@ data class PokemonListResponse(
 )
 
 data class PokemonListItemResponse(
+    val id:Int,
     val name:String,
-    val url:String
+    val height: Int,
+    val weight: Int
 )
